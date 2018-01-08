@@ -38,7 +38,7 @@ public class WebLogAspect {
 
     //防止多线程访问一个变量出现的同步问题，使用ThreadLocal来维护这个变量
     ThreadLocal<Long> startTime = new ThreadLocal<>();
-    @Pointcut("execution(public * com.multidatasource.example.controller.*(..))")
+    @Pointcut("execution(public * com.multidatasource.example.demo.controller.*(..))")
     public void webLog(){};
 
     @Before("webLog()")

@@ -34,7 +34,6 @@ public class DynamicDataSourceRegister implements ImportBeanDefinitionRegistrar,
 
     @Override
     public void setEnvironment(Environment environment) {
-        System.out.println("DynamicDataSourceRegister.setEnvironment()");
         initDefaultDataSource(environment);
         initCustomDataSources(environment);
     }
@@ -47,7 +46,6 @@ public class DynamicDataSourceRegister implements ImportBeanDefinitionRegistrar,
      */
     @Override
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
-        System.out.println("DynamicDataSourceRegister.registerBeanDefinitions()");
         Map<Object,Object> targetDataSources = new HashMap<>();
         // 将主数据源添加到更多数据源中
         targetDataSources.put("dataSource", defaultDataSource);

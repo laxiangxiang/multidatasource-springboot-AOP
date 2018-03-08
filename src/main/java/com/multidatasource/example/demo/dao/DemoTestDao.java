@@ -1,6 +1,6 @@
 package com.multidatasource.example.demo.dao;
 
-import com.multidatasource.example.demo.bean.Demo;
+import com.multidatasource.example.demo.model.Demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;

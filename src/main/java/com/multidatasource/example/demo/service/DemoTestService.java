@@ -1,9 +1,11 @@
 package com.multidatasource.example.demo.service;
 
-import com.multidatasource.example.demo.bean.Demo;
+import com.multidatasource.example.demo.model.Demo;
 import com.multidatasource.example.demo.config.datasource.dynamic.TargetDataSource;
 import com.multidatasource.example.demo.dao.DemoTestDao;
 import com.multidatasource.example.demo.dao.DemoTestRepository;
+import com.multidatasource.example.demo.param.DemoParam;
+import com.multidatasource.example.demo.util.BeanValidator;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -41,6 +43,28 @@ public class DemoTestService {
      */
     @TargetDataSource("ds2")
     public Demo findByName(String name){
+        return demoTestRepository.findByName(name);
+    }
+
+    @TargetDataSource("ds1")
+    public void saveDemoTodb1(DemoParam param){
+        Demo demo = Demo.builder()
+                .id(param.getId())
+                .name(param.getName())
+                .NO(param.getNO()).build();
+        demoTestRepository.save(demo);
+    }
+
+    public void saveDemodb(DemoParam param){
+        Demo demo = Demo.builder()
+                .id(param.getId())
+                .name(param.getName())
+                .NO(param.getNO()).build();
+        demoTestRepository.save(demo);
+    }
+
+    @TargetDataSource("ds1")
+    public Demo findByNameFromDB1(String name){
         return demoTestRepository.findByName(name);
     }
 }

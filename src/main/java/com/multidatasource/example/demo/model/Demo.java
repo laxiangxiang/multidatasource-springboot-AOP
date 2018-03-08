@@ -1,10 +1,17 @@
-package com.multidatasource.example.demo.bean;
+package com.multidatasource.example.demo.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Demo {
 
     @Id
@@ -12,6 +19,16 @@ public class Demo {
     private Integer id;
 
     private String name;
+
+    private Integer NO;
+
+    public Integer getNO() {
+        return NO;
+    }
+
+    public void setNO(Integer NO) {
+        this.NO = NO;
+    }
 
     public long getId() {
         return id;
@@ -34,6 +51,8 @@ public class Demo {
         return "Demo{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", NO=" + NO +
                 '}';
     }
+
 }

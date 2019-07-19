@@ -16,30 +16,18 @@ public class DemoTestDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    /**
-     * 不指定数据源使用默认数据源
-     * @return
-     */
+    public void save(Demo demo){
+        jdbcTemplate.execute("insert into demo values (null,"+demo.getNO()+",'"+demo.getName()+"')");
+    }
+
     public List<Demo> getList(){
-        String sql = "select * from Demo1";
+        String sql = "select * from Demo";
         return jdbcTemplate.query(sql, new RowMapper<Demo>() {
             @Override
             public Demo mapRow(ResultSet resultSet, int i) throws SQLException {
                 Demo demo = new Demo();
                 demo.setId(resultSet.getInt("id"));
-                demo.setName(resultSet.getString("name"));
-                return  demo;
-            }
-        });
-    }
-
-    public List<Demo> getListByDs1(){
-        String sql = "select * from demo1";
-        return (List<Demo>) jdbcTemplate.query(sql, new RowMapper<Demo>() {
-            @Override
-            public Demo mapRow(ResultSet resultSet, int i) throws SQLException {
-                Demo demo = new Demo();
-                demo.setId(resultSet.getInt("id"));
+                demo.setNO(resultSet.getInt("no"));
                 demo.setName(resultSet.getString("name"));
                 return  demo;
             }

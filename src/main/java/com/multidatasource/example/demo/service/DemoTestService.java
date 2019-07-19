@@ -1,11 +1,9 @@
 package com.multidatasource.example.demo.service;
 
 import com.multidatasource.example.demo.model.Demo;
-import com.multidatasource.example.demo.config.datasource.dynamic.TargetDataSource;
+import com.multidatasource.example.demo.config.datasource.annotation.TargetDataSource;
 import com.multidatasource.example.demo.dao.DemoTestDao;
 import com.multidatasource.example.demo.dao.DemoTestRepository;
-import com.multidatasource.example.demo.param.DemoParam;
-import com.multidatasource.example.demo.util.BeanValidator;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

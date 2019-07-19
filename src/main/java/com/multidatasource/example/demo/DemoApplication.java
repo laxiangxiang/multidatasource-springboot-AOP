@@ -1,6 +1,6 @@
 package com.multidatasource.example.demo;
 
-import com.multidatasource.example.demo.config.datasource.dynamic.DynamicDataSourceRegister;
+import com.multidatasource.example.demo.config.datasource.DynamicDataSourceRegister;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;

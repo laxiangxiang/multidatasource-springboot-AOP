@@ -1,4 +1,4 @@
-package com.multidatasource.example.demo.config.datasource.dynamic;
+package com.multidatasource.example.demo.config.datasource.annotation;
 
 import java.lang.annotation.*;
 

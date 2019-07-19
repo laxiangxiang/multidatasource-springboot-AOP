@@ -1,4 +1,4 @@
-package com.multidatasource.example.demo.config.datasource.dynamic;
+package com.multidatasource.example.demo.config.datasource;
 
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 

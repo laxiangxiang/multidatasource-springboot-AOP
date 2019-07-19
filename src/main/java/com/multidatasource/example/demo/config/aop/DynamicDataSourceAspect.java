@@ -1,5 +1,7 @@
-package com.multidatasource.example.demo.config.datasource.dynamic;
+package com.multidatasource.example.demo.config.aop;
 
+import com.multidatasource.example.demo.config.datasource.DynamicDataSourceContextHolder;
+import com.multidatasource.example.demo.config.datasource.annotation.TargetDataSource;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
@@ -26,7 +28,7 @@ public class DynamicDataSourceAspect {
      * 会拦截注解targetDataSource的方法，否则不拦截;
      */
     @Before("@annotation(targetDataSource)")
-    public void changeDataSource(JoinPoint point,TargetDataSource targetDataSource){
+    public void changeDataSource(JoinPoint point, TargetDataSource targetDataSource){
         //获取当前指定的数据源
         String dsId = targetDataSource.value();
         //如果不在我们注入的所有的数据源范围之内，那么输出警告信息，系统自动使用默认的数据源。
